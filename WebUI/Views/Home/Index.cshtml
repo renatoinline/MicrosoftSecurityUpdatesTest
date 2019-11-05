@@ -1,0 +1,69 @@
+﻿@using WebUI.Models
+
+@model UpdatesViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+    <table class="table table-responsive table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Alias
+                </th>
+                <th>
+                    DocumentTitle
+                </th>
+                <th>
+                    InitialReleaseDate
+                </th>
+                <th>
+                    CurrentReleaseDate
+                </th>
+                <th>
+                    CvrfUrl
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (SecurityUpdateViewModel update in this.Model.Updates)
+            {
+                <tr>
+                    <td>
+                        @update.Id
+                    </td>
+                    <td>
+                        @update.Alias
+                    </td>
+                    <td>
+                        @update.DocumentTitle
+                    </td>
+                    <td>
+                        @update.InitialReleaseDate
+                    </td>
+                    <td>
+                        @update.CurrentReleaseDate
+                    </td>
+                    <td>
+                        @update.CvrfUrl
+                    </td>
+                </tr>
+            }
+                
+            </tbody>
+    </table>    
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
