@@ -7,7 +7,15 @@
 }
 
 
-
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Filtrar por ID <input type="text" name="filter" value="@ViewData["currentFilter"]" />
+                <input type="submit" value="Filtrar" class="btn btn-default" /> |
+                <a asp-action="Index">Voltar para lista completa</a>
+            </p>
+        </div>
+    </form>
 
     <table class="table table-responsive table-bordered table-striped">
         <thead>

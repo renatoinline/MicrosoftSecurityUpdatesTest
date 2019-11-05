@@ -20,11 +20,19 @@ namespace WebUI.Controllers
             _securityUpdateService = securityUpdateService ?? throw new ArgumentNullException("securityUpdateService");
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string filter)
         {
+            ViewData["CurrentFilter"] = filter;
+
             var allUpdates = _securityUpdateService.GetAll();
 
+            if (!String.IsNullOrEmpty(filter))
+            {
+                allUpdates = allUpdates.Where(s => s.Id.Contains(filter));
+            }
+
             UpdatesViewModel updatesViewModel = new UpdatesViewModel(allUpdates.Select(e => new SecurityUpdateViewModel(e)));
+
             return View(updatesViewModel);
         }
 
